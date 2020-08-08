@@ -49,6 +49,17 @@ public class Commande {
 		setDates();
 	}
 	
+	
+	
+	public Commande(int idCommande, int numChambre, String date) {
+		super();
+		this.idCommande = idCommande;
+		this.numChambre = numChambre;
+		this.date = date;
+	}
+
+
+
 	private static boolean isBlank(String valeur) {
 		return valeur == null || "".equals(valeur);
 	}

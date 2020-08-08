@@ -15,21 +15,23 @@
 
 		<div id="message"><c:out value="${message}"/></div>
 		
-		<div id="subtitle">Liste des commandes :</div>
+		<div id="subtitle">Liste des 5 dernières commandes :</div>
 		<table>
 			<tr>
-				<th>Table n°</th>
-				<th>Date et heure</th>
+				<th>Commande n°</th>
+				<th>Chambre n°</th>
+				<th>Date</th>
 			</tr>
 			<c:forEach var="commande"  items="${listeCommandes}" >
 			<tr>
+				<td><c:out value='${commande.idCommande}'/></td>
 				<td><c:out value='${commande.numChambre}'/></td>
 				<td><c:out value='${commande.date}'/></td>
 			</tr>
 			</c:forEach>
 		</table>
-		<a href="/cocktailee/prepacommande"><button>Commande suivante</button></a><br>
-		<a href="/cocktailee/"><button>Retour à l'accueil</button></a>
+		<a href="/chillee/commande"><button>Commande suivante</button></a><br>
+		<a href="/chillee/"><button>Retour à l'accueil</button></a>
 	</div>
 </body>
 </html>

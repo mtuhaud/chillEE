@@ -14,16 +14,6 @@
 	    <div id="message"><c:out value="${message}"/></div>
 	  	
 		<form method="post" accept-charset="utf-8">
-<%-- 			<div>
-				<select id="boisson" name="boisson">
-					<option value="0">-- Boisson --</option>
-					<c:forEach var="boisson" items="${listeBoissons}">
-						<option value="${boisson.idBoisson}" ${param['boisson'] == boisson.idBoisson ? "selected" : ""}>
-							<c:out value="${boisson.nom}"/>
-						</option>
-					</c:forEach>
-				</select>
-			</div> --%>
 			<div>
 				<select id="idboisson" name="idboisson">
 					<option value="0">-- Boisson --</option>
@@ -34,36 +24,22 @@
 					</c:forEach>
 				</select>
 			</div>
-<%-- 			<div>
-				<select id="plat" name="plat">
-					<option value="0">-- Plat --</option>
-					<c:forEach var="plat" items="${listePlats}">
-						<option value="${plat.idPlat}" ${param['plat'] == plat.idPlat ? "selected" : ""}>
-							<c:out value="${plat.nom}"/>
-						</option>
-					</c:forEach>
-				</select>
-			</div> --%>
+
 			<div>
 				<select id="idplat" name="idplat">
 					<option value="0">-- Plat --</option>
 					<c:forEach var="plat" items="${plats}">
 					<option value="${plat.idPlat}">
 						<c:out value="${plat.nom}"/>
+							<c:if test="${plat.idPlat > 0}" >
+								<p> : </p>
+							</c:if>
+						<c:out value="${plat.composition}"/>
 					</option>
 					</c:forEach>
 				</select>
 			</div>
-<%-- 			<div>
-				<select id="dessert" name="dessert">
-					<option value="0">-- Dessert --</option>
-					<c:forEach var="dessert" items="${listeDesserts}">
-						<option value="${dessert.idDessert}" ${param['dessert'] == dessert.idDessert ? "selected" : ""}>
-							<c:out value="${dessert.nom}"/>
-						</option>
-					</c:forEach>
-				</select>
-			</div> --%>
+
 			<div>
 				<select id="iddessert" name="iddessert">
 					<option value="0">-- Dessert --</option>

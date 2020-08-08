@@ -20,7 +20,7 @@
 			<li><i>Dessert :</i> <c:out value="${commande.dessert.nom}"/></li>
 			<li><i>Date et heure :</i> <c:out value="${commande.dateRecap}"/></li>
 		</ul>
-		<a href="/cocktailee/"><button>Retour à l'accueil</button></a>
+		<a href="/chillee/"><button>Retour à l'accueil</button></a>
 		
 		<a href="RecapServlet?idcommande=${commande.idCommande}"><button>Delete</button></a>
 		

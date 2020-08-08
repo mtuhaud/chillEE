@@ -55,18 +55,18 @@ public class CommandeDAO extends ConnexionDAO {
 		}
 	}
 	
-//	public List<Commande> selectCommande() {
-//		try(Connection c = getConnection(); Statement stmt = c.createStatement()) {
-//			ResultSet rs = stmt.executeQuery("SELECT idplat, nom, composition FROM plat");
-//			List<Plat> plat = new ArrayList<Plat>();
-//			while (rs.next()) {
-//				plat.add(new Plat(rs.getInt("idplat"), rs.getString("nom"), rs.getString("composition")));
-//			}
-//			return plat;
-//		} catch (SQLException e) {
-//			throw new DAOException("");
-//		}
-//	}
+	public List<Commande> selectCommande() {
+		try(Connection c = getConnection(); Statement stmt = c.createStatement()) {
+			ResultSet rs = stmt.executeQuery("SELECT idcommande, numchambre, datecommande FROM commande ORDER BY idcommande DESC LIMIT 5");
+			List<Commande> commande = new ArrayList<Commande>();
+			while (rs.next()) {
+				commande.add(new Commande(rs.getInt("idcommande"), rs.getInt("numchambre"), rs.getString("datecommande")));
+			}
+			return commande;
+		} catch (SQLException e) {
+			throw new DAOException("");
+		}
+	}
 	
 	
 	public void deleteCommande(int id) {
