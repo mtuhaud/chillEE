@@ -1,4 +1,4 @@
-package chill.web;
+package chill.controleur;
 
 import java.io.IOException;
 import java.util.List;
@@ -27,9 +27,8 @@ public class CommandeServlet extends HttpServlet {
 
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//		RequestDispatcher rd = getServletContext().getRequestDispatcher(VUE_COMMANDE);
-//		rd.forward(req, resp);
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
+			throws ServletException, IOException {
 		List<Boisson> boisson = new BoissonDAO().selectBoisson();
 		List<Plat> plat = new PlatDAO().selectPlat();
 		List<Dessert> dessert = new DessertDAO().selectDessert();
@@ -41,7 +40,8 @@ public class CommandeServlet extends HttpServlet {
 	}
 
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) 
+			throws ServletException, IOException {
 		req.setCharacterEncoding("utf-8");
 		try {
 			String idBoisson = req.getParameter("idboisson");
@@ -49,7 +49,6 @@ public class CommandeServlet extends HttpServlet {
 			String idDessert = req.getParameter("iddessert");
 			String numChambre = req.getParameter("chambre");
 			Commande commande = new Commande(idBoisson, idPlat, idDessert, numChambre);
-			System.out.println(commande);
 			new CommandeDAO().insertCommande(commande);
 			req.setAttribute("commande", commande);
 			getServletContext().getRequestDispatcher(VUE_RECAP).forward(req, resp);

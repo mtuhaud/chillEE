@@ -1,4 +1,4 @@
-package chill.web;
+package chill.controleur;
 
 import java.io.IOException;
 

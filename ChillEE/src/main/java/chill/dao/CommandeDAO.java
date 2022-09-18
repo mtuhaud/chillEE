@@ -34,22 +34,17 @@ public class CommandeDAO extends ConnexionDAO {
 	        if (ligneAffectee == 0) {
 	            throw new SQLException("Echec de la création de la commande, pas de ligne affectée .");
 	        }
-	    // Pour recuperer l'id Auto increment dans MySQL    
-        try (ResultSet rs = pstmt.getGeneratedKeys()) {
-            if (rs.next()) {
-                commande.setIdCommande(rs.getInt(1));
-            }
-            else {
-                throw new SQLException("Echec de la création de la commande, pas d'ID obtenu.");
-            }
-        }       
 	        
-//			ResultSet rs = pstmt.getGeneratedKeys();
-//			rs.next();
-//			int idCommande = rs.getInt(1);
-//			if (rs.next()) {
-//			      System.out.println("clé: " + rs.getString(1));
-//			}
+		    // Pour recuperer l'id Auto increment dans MySQL    
+	        try (ResultSet rs = pstmt.getGeneratedKeys()) {
+	            if (rs.next()) {
+	                commande.setIdCommande(rs.getInt(1));
+	            }
+	            else {
+	                throw new SQLException("Echec de la création de la commande, pas d'ID obtenu.");
+	            }
+	        }       
+
 		} catch(SQLException e) {
 			throw new DAOException("");
 		}
